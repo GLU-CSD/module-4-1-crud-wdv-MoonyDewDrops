@@ -1,58 +1,99 @@
 <?php
-    include('core/header.php');
+session_start();
+
+include_once 'connection.php';
+
+//sql command
+$sql = "SELECT * FROM products";
+$result = $conn->query($sql);
+
+//thing to do the stuff so i can call it in the body of the html
+if ($result->num_rows > 0) {
+  $products = array();
+  while ($row = $result->fetch_assoc()) {
+    $products[] = $row;
+  }
+} else {
+  echo "No products found";
+}
+
+$conn->close();
 ?>
-<div class="row">
-    <div class="col">
-        <h1 class="text-center">WELKOM</h1>
-    </div>
-</div>
 
-<div class="row mb-3">
-   <div class="col">
-        <img src="https://placehold.co/1920x400.png" class="img-fluid" alt="">
-   </div>
-</div>
-<div class="row">
-    <div class="col-12">
-        <h2 class="text-center">Latest products</h2>
-    </div>
-    <div class="col-4 mb-3">
-        <div class="card w-100">
-            <img src="https://placehold.co/600x400.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">&euro; 39,99</p>
-                <a href="product.php" class="btn btn-primary">Go somewhere</a>
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/0TopBalk.css">
+  <link rel="stylesheet" href="assets/css/1navigationBalk.css">
+  <link rel="stylesheet" href="assets/css/2Filter.css">
+  <link rel="stylesheet" href="assets/css/3products.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="shortcut icon" href="assets/Images/favicon.ico">
+  <meta name="theme-color" content="#fafafa">
+
+  <script defer src="assets/js/app.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <?php
+    include_once 'header.php';
+    include_once 'filter.php';
+    ?>
+
+    <div class="products">
+      <?php
+
+      if (isset($products)) {
+        foreach ($products as $product) {
+      ?>
+          <a href="productPage.php?id=<?= $product['id'] ?>" style="text-decoration:none;color:black;">
+            <div class="product-item">
+              <img src="assets/Images/<?= $product['photo']; ?>" alt="<?= $product['title'] ?>" style="width: 100%; height: auto">
+              <br> <br>
+              <?= $product['title'] ?>
+              <p>€<?= $product['price'] ?></p>
             </div>
-        </div>
+          </a>
+      <?php
+        }
+      } else {
+        echo "No products available.";
+      }
+      ?>
+
+
     </div>
 
-    <div class="col-4 mb-3">
-        <div class="card w-100">
-            <img src="https://placehold.co/600x400.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">&euro; 39,99</p>
-                <a href="product.php" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
+    <div class="nextPage">
+      <div id="pager">
+        <p>1, 2, 3, 4 ... 10</p>     
+      </div>
     </div>
-    
 
-    <div class="col-4 mb-3">
-        <div class="card w-100">
-            <img src="https://placehold.co/600x400.png" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">&euro; 39,99</p>
-                <a href="product.php" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-12 text-center">
-        <a href="products.php" class="btn btn-info">SHOW ALL products</a>
-    </div>    
-</div>
-<?php
-    include('core/footer.php');
-?>
+
+    <?php
+    include_once 'footer.php';
+    ?>
+
+  </div>
+</body>
+
+</html>

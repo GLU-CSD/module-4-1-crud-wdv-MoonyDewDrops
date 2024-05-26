@@ -1,0 +1,30 @@
+/*Thing where to put the button for Home, New, Sale & just overall other links that dont fit on the page itself*/
+.additional-info {
+  grid-area: additional-info;
+
+  /*style*/
+
+  border: 2px solid #6495ED;
+  background-color: #98b5eb;
+  color: #13293D;
+  padding: 1%;
+}
+
+.additional-info button {
+  background-color: #98b5eb;
+  color: #13293D;
+  height: 100%;
+  width: 28%;
+  gap: 20%;
+  text-align: center;
+  border: none;
+  margin-left: 3%;
+  border: 1px solid #4a6dad;
+  border-radius: 15px;
+}
+
+.additional-info button:hover {
+  background-color: #7f98c3;
+  cursor: pointer;
+
+}

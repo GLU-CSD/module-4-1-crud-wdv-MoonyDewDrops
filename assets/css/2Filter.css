@@ -1,0 +1,159 @@
+/*The thing where the filters are displayed inside*/
+.Filter {
+  grid-area: Filter;
+
+  /*style*/
+
+  border: 2px solid #6495ED;
+  background-color: #b4c5e6;
+  color: #13293D;
+  display: grid;
+  padding: 5%;
+
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.02fr 0.05fr 0.07fr 0.06fr 0.05fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "itemsFound"
+    "sortBy"
+    "gameFilter"
+    "price"
+    "submitFilter";
+  justify-items: center;
+}
+
+
+/*Shows how many items are found, need to edit this so it acc displays the amount of items w back-end*/
+#itemsFound {
+  border: 1px solid #6495ED;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 5%;
+  width: 80%;
+  grid-area: itemsFound;
+
+}
+
+/*Selector of what you wanna sort/how you want to view the products*/
+#sortBy {
+  border: 1px solid #6495ED;
+  border-radius: 15px;
+  text-align: left;
+  margin-bottom: 5%;
+  text-align: center;
+  width: 80%;
+  grid-area: sortBy;
+}
+
+.Filter select {
+  background-color: #b4c5e6;
+  font-size: 18px;
+  outline: none;
+  border: none;
+  color: #13293D;
+  width: 100%;
+}
+
+/*Makes it so the cursor points so that its easy to know u can click it*/
+.Filter select:hover {
+  cursor: pointer;
+}
+
+/*What kind of game you want to show/not show*/
+#gameFilter {
+  border: 1px solid #6495ED;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 5%;
+  width: 80%;
+  grid-area: gameFilter;
+}
+
+/*Slider to filter what price you want*/
+#price {
+  border: 1px solid #6495ED;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 5%;
+  padding: 5%;
+  width: 70%;
+  grid-area: price;
+}
+
+.slideContainer {
+  width: 100%;
+}
+
+.slider {
+  appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background-color: #6495ED;
+  transition: opacity .2s;
+}
+
+/*Makes the slider circle another colour & acc into a cilcer*/
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+/*Thing w button to click when you acc wanna sort. Still needs to work w back-end*/
+#submitFilter {
+  border: 1px solid #6495ED;
+  border-radius: 15px;
+  text-align: center;
+  padding: 2%;
+  margin-bottom: 5%;
+  width: 80%;
+  grid-area: submitFilter;
+}
+
+#submitFilter button {
+  border: 1px solid #6495ED;
+  width: 40%;
+  height: 80%;
+  margin-top: 6%;
+}
+
+#submitFilter button:hover {
+  background-color: rgb(235, 235, 235);
+  cursor: pointer;
+}
+
+/*Responsive stuff*/
+@media only screen and (max-width: 745px) {
+  .Filter {
+    gap: 0px 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+      "itemsFound itemsFound"
+      "sortBy gameFilter"
+      "price submitFilter";
+  }
+
+  #itemsFound {
+    align-self: center;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .Filter {
+    gap: 0px 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "itemsFound"
+      "sortBy"
+      "gameFilter"
+      "price"
+      "submitFilter";
+  }
+}

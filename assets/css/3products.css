@@ -1,0 +1,157 @@
+/*
+The star of the show, the products. 
+Where everything is sorted into a grid just like the .container class
+*/
+.products {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /*grid-template-rows: 1fr 1fr 1fr 1fr 0.1fr;*/
+  gap: 15px 15px;
+  /*grid-auto-flow: row;*/
+  grid-area: products;
+  padding: 3%;
+
+  grid-template-areas:
+    'product-item product-item product-item'
+    'product-item product-item product-item'
+    'product-item product-item product-item'
+    'product-item product-item product-item'
+    'product-item product-item product-item'
+    'product-item product-item product-item'
+    'product-item product-item product-item';
+
+  /*style*/
+  
+  /* border: 2px solid #6495ED; */
+  background-color: white;
+  color: #13293D;
+  text-align: center;
+}
+
+/*The class that makes it so i dont have to repeat this with all of them like i have to with the grid-area*/
+.product-item {
+  border: 2px solid #6495ED;
+  background-color: white;
+  padding: 5%;
+  border-radius: 15px;
+  height: 90%;
+}
+
+.product-item img {
+  animation: fadeIn 2s;
+}
+
+/*makes it diff colour when mouse hovers over it, makes it intresting*/
+.product-item:hover {
+  background-color: rgb(235, 235, 235);
+  color: #13293D;
+  cursor: pointer;
+}
+
+
+/*Thing i already made for when i want to do other pages, like if i want 10 on each page. Maybe make a filter for how many products you want to show per page*/
+#nextPage {
+  grid-area: nextPage;
+  width: 80%;
+  align-self: center;
+  justify-self: center;
+  border: 2px solid #6495ED;
+  background-color: white;
+  padding: 5%;
+  border-radius: 15px;
+}
+
+/*Add to cart buttons*/
+.productButtons {
+  border: 1px solid #6495ED;
+  border-radius: 15px;
+}
+
+.productButtons:hover {
+  cursor: pointer;
+}
+
+/* responsiveness below */
+@media only screen and (max-width: 745px) {
+  .products {
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "product-item product-item"
+      /*1*/
+      "product-item product-item"
+      /*2*/
+      "product-item product-item"
+      /*3*/
+      "product-item product-item"
+      /*4*/
+      "product-item product-item"
+      /*5*/
+      "product-item product-item"
+      /*6*/
+      "product-item product-item"
+      /*7*/
+      "product-item product-item"
+      /*8*/
+      "product-item product-item"
+      /*9*/
+      "product-item product-item"
+      /*10*/
+      "product-item blank"
+      /*11*/
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .products {
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      "product-item"
+      "product-item"
+      /*1*/
+      "product-item"
+      "product-item"
+      /*2*/
+      "product-item"
+      "product-item"
+      /*3*/
+      "product-item"
+      "product-item"
+      /*4*/
+      "product-item"
+      "product-item"
+      /*5*/
+      "product-item"
+      "product-item"
+      /*6*/
+      "product-item"
+      "product-item"
+      /*7*/
+      "product-item"
+      "product-item"
+      /*8*/
+      "product-item"
+      "product-item"
+      /*9*/
+      "product-item"
+      "product-item"
+      /*10*/
+      "product-item"
+      /*11*/
+  }
+
+}
+
+/* animation for loading in n stuff */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

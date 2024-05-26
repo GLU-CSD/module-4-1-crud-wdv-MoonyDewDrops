@@ -3,21 +3,17 @@ body {
   font-family: sans-serif;
 }
 
-/* Css for index */
-
 /*grid layout for everything*/
 .container {
   display: grid;
-  grid-template-columns: 1fr 0.5fr 1fr 1fr 1fr;
-  grid-template-rows: 0.13fr 0.125fr 5fr 1fr 0.25fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.15fr 0.2fr 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "logo logo search search addons"
+    "logo search search search addons"
     "additional-info additional-info additional-info additional-info additional-info"
-    "Filter products products products products"
-    "Filter products products products products"
-    "Filter nextPage nextPage nextPage nextPage"
+    "info info info info info"
     "disclaimer disclaimer disclaimer disclaimer disclaimer";
   width: 80%;
   margin-left: 10%;
@@ -28,35 +24,23 @@ body {
   background-color: white;
 }
 
-/*Thing i already made for when i want to do other pages, like if i want 10 on each page. Maybe make a filter for how many products you want to show per page*/
-.nextPage {
-  grid-area: nextPage;
+.info {
   background-color: white;
-  padding: 5%;
+  grid-area: info;
 }
 
-#pager{
-  align-self: center;
-  justify-self: center;
-  text-align: center;
-  border: 2px solid #6495ED;
-  padding: 5%;
-  border-radius: 15px;
-}
-
-@media only screen and (max-width: 1040px) {
+/* below is all responsiveness things */
+@media only screen and (max-width: 1150px) {
   .container {
     display: grid;
-    grid-template-columns: 1fr 0.5fr 1fr 1fr 1fr;
-    grid-template-rows: 0.27fr 0.125fr 5fr 1fr 0.25fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.27fr 0.125fr 2fr 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas:
       "logo logo search search addons"
       "additional-info additional-info additional-info additional-info additional-info"
-      "Filter products products products products"
-      "Filter products products products products"
-      "Filter nextPage nextPage nextPage nextPage"
+      "info info info info info"
       "disclaimer disclaimer disclaimer disclaimer disclaimer";
     width: 80%;
     margin-left: 10%;
@@ -68,33 +52,27 @@ body {
   }
 }
 
-/*For responsiveness. This changes the grid layout so it's better displayed and doesn't bug out*/
 @media only screen and (max-width: 745px) {
   .container {
     grid-template-columns: 0.5fr 1fr 1fr;
-    grid-template-rows: 0.07fr 0.1fr 0.3fr 0.75fr 0.05fr;
+    grid-template-rows: 0.2fr 0.2fr 1.3fr 1.4fr;
     grid-template-areas:
       "logo search addons"
       "additional-info additional-info additional-info"
-      "Filter Filter Filter"
-      "products products products"
-      "nextPage nextPage nextPage"
+      "info info info"
       "disclaimer disclaimer disclaimer";
   }
 }
 
-/*Responsiveness for even smaller screens*/
 @media only screen and (max-width: 450px) {
 
   .container {
     grid-template-columns: 0.5fr 2fr 1fr;
-    grid-template-rows: 0.01fr 0.05fr 0.5fr 7fr 1fr;
+    grid-template-rows: 0.15fr 0.15fr 2fr 1fr;
     grid-template-areas:
       "logo search addons"
       "additional-info additional-info additional-info"
-      "Filter Filter Filter"
-      "products products products"
-      "nextPage nextPage nextPage"
+      "info info info"
       "disclaimer disclaimer disclaimer";
   }
 

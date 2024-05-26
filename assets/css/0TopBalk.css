@@ -1,0 +1,98 @@
+/*Where the logo is placed*/
+.logo {
+  grid-area: logo;
+
+  /*style*/
+  border-left: 2px solid #13293D;
+  border-top: 2px solid #13293D;
+  border-bottom: 2px solid #13293D;
+  position: sticky;
+  top: 0.3px;
+  background-color: #6495ED;
+  color: #13293D;
+}
+
+.logoImg {
+  height: 90%;
+  width: 100%;
+  margin-top: 1.5%;
+}
+
+/*Where the search balk is placed*/
+.search {
+  grid-area: search;
+
+  /*style*/
+  border-top: 2px solid #13293D;
+  border-bottom: 2px solid #13293D;
+  position: sticky;
+  top: 0.3px;
+}
+
+/*actual thing that searches*/
+.search input[type="text"] {
+  font-size: 20px;
+  height: 97%;
+  width: 100%;
+  background-color: #6495ED;
+  color: #13293D;
+  border: none;
+  outline: none;
+}
+
+/*Thing thats there if there's nothing yet*/
+.search input::placeholder {
+  color: #2b3743;
+}
+
+/*box with the Account, Cart & Favourite button*/
+.addons {
+  grid-area: addons;
+
+  /*style*/
+  position: sticky;
+  top: 0.3px;
+  background-color: #6495ED;
+  color: #13293D;
+  border-top: 2px solid #13293D;
+  border-bottom: 2px solid #13293D;
+  border-right: 2px solid #13293D;
+
+  padding: 1%;
+  overflow-y: scroll;
+
+  overflow: hidden;
+
+}
+
+.addons button {
+  background-color: #6495ED;
+  border-radius: 15px;
+  color: #13293D;
+  height: 50px;
+  width: 50px;
+  font-size: 12px;
+
+}
+
+.addons button:hover {
+  background-color: #5177bc;
+
+  color: #13293D;
+  cursor: pointer;
+
+}
+
+.addOnnImg {
+  height: 50%;
+  width: 50%;
+
+}
+
+/* responsive */
+@media only screen and (max-width: 450px) {
+  .addons button {
+    height: 35px;
+    width: 35px;
+  }
+}
